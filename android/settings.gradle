@@ -1,55 +1,20 @@
-plugins {
-    id 'com.android.application'
-}
-
-android {
-    namespace 'com.quransharif.app'
-    compileSdk 35
-
-    defaultConfig {
-        applicationId 'com.quransharif.app'
-        minSdk 23
-        targetSdk 35
-
-        versionCode System.getenv("GITHUB_RUN_NUMBER") ?
-                System.getenv("GITHUB_RUN_NUMBER").toInteger() : 1
-
-        versionName project.findProperty("versionName") ?: "1.0.0"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            shrinkResources false
-
-            // আপাতত GitHub APK build করার জন্য
-            signingConfig signingConfigs.debug
-        }
-
-        debug {
-            minifyEnabled false
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
     }
 }
 
-dependencies {
-    implementation 'androidx.core:core:1.15.0'
-    implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'androidx.webkit:webkit:1.12.1'
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
+    repositories {
+        google()
+        mavenCentral()
+    }
 }
 
-/*
- * মূল www folder থেকে Android assets-এ
- * HTML/CSS/JS automatically copy করবে।
- */
-tasks.register("copyWebAssets", Copy) {
-    from rootProject.file("../www")
-    into file("$projectDir/src/main/assets/www")
-}
+rootProject.name = "QuranSharif"
 
-preBuild.dependsOn("copyWebAssets")
+include(":app")
