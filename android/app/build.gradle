@@ -21,8 +21,6 @@ android {
         release {
             minifyEnabled false
             shrinkResources false
-
-            // আপাতত GitHub APK build করার জন্য
             signingConfig signingConfigs.debug
         }
 
@@ -37,16 +35,20 @@ android {
     }
 }
 
+configurations.configureEach {
+    resolutionStrategy {
+        force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.22'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22'
+    }
+}
+
 dependencies {
     implementation 'androidx.core:core:1.15.0'
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.webkit:webkit:1.12.1'
 }
 
-/*
- * মূল www folder থেকে Android assets-এ
- * HTML/CSS/JS automatically copy করবে।
- */
 tasks.register("copyWebAssets", Copy) {
     from rootProject.file("../www")
     into file("$projectDir/src/main/assets/www")
