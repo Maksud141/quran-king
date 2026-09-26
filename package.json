@@ -1,0 +1,9 @@
+{
+  "name": "quran-sharif",
+  "version": "1.0.0",
+  "private": true,
+  "description": "কুরআন শরীফ Android application",
+  "scripts": {
+    "check": "node --check www/app.js"
+  }
+}
