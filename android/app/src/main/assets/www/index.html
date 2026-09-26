@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0B6B4B"
+    >
+
+    <meta
+        name="description"
+        content="কুরআন শরীফ - বাংলা অনুবাদ, তাফসীর, শব্দার্থ, অডিও ও নামাজের সময়"
+    >
+
+    <title>কুরআন শরীফ</title>
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="topbar">
+
+        <button
+            id="menuBtn"
+            class="icon-btn"
+            aria-label="Menu"
+        >
+            ☰
+        </button>
+
+        <div class="app-title">
+
+            <div class="title-main">
+                কুরআন শরীফ
+            </div>
+
+            <div class="title-sub">
+                القرآن الكريم
+            </div>
+
+        </div>
+
+        <button
+            id="searchBtn"
+            class="icon-btn"
+            aria-label="Search"
+        >
+            🔍
+        </button>
+
+    </header>
+
+
+    <!-- Side Menu -->
+
+    <div
+        id="drawerOverlay"
+        class="drawer-overlay hidden"
+    ></div>
+
+    <aside
+        id="drawer"
+        class="drawer"
+    >
+
+        <div class="drawer-header">
+
+            <div class="drawer-logo">
+                📖
+            </div>
+
+            <div>
+
+                <div class="drawer-title">
+                    কুরআন শরীফ
+                </div>
+
+                <div class="drawer-subtitle">
+                    القرآن الكريم
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            class="drawer-item"
+            data-page="home"
+        >
+            🏠 হোম
+        </button>
+
+        <button
+            class="drawer-item"
+            data-page="quran"
+        >
+            📖 কুরআন
+        </button>
+
+        <button
+            class="drawer-item"
+            data-page="hadith"
+        >
+            📚 হাদীস
+        </button>
+
+        <button
+            class="drawer-item"
+            data-page="dua"
+        >
+            🤲 দোয়া
+        </button>
+
+        <button
+            class="drawer-item"
+            data-page="tasbih"
+        >
+            📿 তাসবীহ
+        </button>
+
+        <button
+            class="drawer-item"
+            data-page="qibla"
+        >
+            🧭 কিবলা
+        </button>
+
+        <button
+            class="drawer-item"
+            data-page="settings"
+        >
+            ⚙️ সেটিংস
+        </button>
+
+    </aside>
+
+
+    <!-- Main -->
+
+    <main id="app">
+
+        <!-- Home -->
+
+        <section
+            id="homePage"
+            class="page active"
+        >
+
+            <div class="hero-card">
+
+                <div class="hero-small">
+                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                </div>
+
+                <div class="hero-title">
+                    আল্লাহর নামে শুরু করছি
+                </div>
+
+                <div
+                    id="locationText"
+                    class="hero-location"
+                >
+                    অবস্থান নির্ধারণ করা হচ্ছে...
+                </div>
+
+                <div
+                    id="nextPrayer"
+                    class="next-prayer"
+                >
+                    পরবর্তী নামাজের সময়
+                </div>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+                <button
+                    class="quick-card"
+                    data-page="quran"
+                >
+                    <span>📖</span>
+                    <strong>কুরআন</strong>
+                </button>
+
+                <button
+                    class="quick-card"
+                    data-page="hadith"
+                >
+                    <span>📚</span>
+                    <strong>হাদীস</strong>
+                </button>
+
+                <button
+                    class="quick-card"
+                    data-page="dua"
+                >
+                    <span>🤲</span>
+                    <strong>দোয়া</strong>
+                </button>
+
+                <button
+                    class="quick-card"
+                    data-page="tasbih"
+                >
+                    <span>📿</span>
+                    <strong>তাসবীহ</strong>
+                </button>
+
+            </div>
+
+
+            <div class="section-title">
+                শেষ পড়া
+            </div>
+
+            <div
+                id="lastReadCard"
+                class="last-read-card"
+            >
+                এখনো কোনো আয়াত পড়া হয়নি।
+            </div>
+
+
+            <div class="section-title">
+                আজকের হাদীস
+            </div>
+
+            <div class="hadith-card">
+
+                <div class="hadith-arabic">
+                    إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ
+                </div>
+
+                <div class="hadith-bangla">
+                    কাজ নিয়তের উপর নির্ভরশীল।
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quran -->
+
+        <section
+            id="quranPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <h2>
+                    কুরআন মাজীদ
+                </h2>
+
+                <button
+                    id="surahSelectBtn"
+                    class="primary-btn"
+                >
+                    সূরা নির্বাচন
+                </button>
+
+            </div>
+
+
+            <div
+                id="surahList"
+                class="surah-list"
+            ></div>
+
+        </section>
+
+
+        <!-- Reader -->
+
+        <section
+            id="readerPage"
+            class="page"
+        >
+
+            <div class="reader-header">
+
+                <button
+                    id="backReader"
+                    class="icon-btn"
+                >
+                    ←
+                </button>
+
+                <div>
+
+                    <div
+                        id="readerSurah"
+                        class="reader-surah"
+                    >
+                        সূরা
+                    </div>
+
+                    <div
+                        id="readerMeta"
+                        class="reader-meta"
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="reader-tools">
+
+                <button
+                    id="wordMode"
+                    class="tool-btn active"
+                >
+                    শব্দার্থ
+                </button>
+
+                <button
+                    id="translationMode"
+                    class="tool-btn active"
+                >
+                    অনুবাদ
+                </button>
+
+                <button
+                    id="fontMinus"
+                    class="tool-btn"
+                >
+                    A−
+                </button>
+
+                <button
+                    id="fontPlus"
+                    class="tool-btn"
+                >
+                    A+
+                </button>
+
+            </div>
+
+
+            <div
+                id="ayahContainer"
+                class="ayah-container"
+            ></div>
+
+        </section>
+
+
+        <!-- Hadith -->
+
+        <section
+            id="hadithPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <h2>
+                    হাদীস
+                </h2>
+
+            </div>
+
+            <div class="content-card">
+
+                <h3>
+                    আজকের হাদীস
+                </h3>
+
+                <p>
+                    নিয়ত মানুষের কাজের মূল ভিত্তি।
+                    ভালো কাজের জন্য সঠিক নিয়ত করা গুরুত্বপূর্ণ।
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Dua -->
+
+        <section
+            id="duaPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <h2>
+                    দোয়া
+                </h2>
+
+            </div>
+
+            <div class="content-card">
+
+                <h3>
+                    রাব্বানা আতিনা
+                </h3>
+
+                <div class="arabic-large">
+                    رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً
+                </div>
+
+                <p>
+                    হে আমাদের রব, আমাদের দুনিয়াতে কল্যাণ দান করুন।
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Tasbih -->
+
+        <section
+            id="tasbihPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <h2>
+                    তাসবীহ
+                </h2>
+
+            </div>
+
+            <div class="tasbih-card">
+
+                <div
+                    id="tasbihCount"
+                    class="tasbih-count"
+                >
+                    0
+                </div>
+
+                <button
+                    id="tasbihBtn"
+                    class="tasbih-button"
+                >
+                    সুবহানাল্লাহ
+                </button>
+
+                <button
+                    id="tasbihReset"
+                    class="reset-btn"
+                >
+                    Reset
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Qibla -->
+
+        <section
+            id="qiblaPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <h2>
+                    কিবলা
+                </h2>
+
+            </div>
+
+            <div class="qibla-card">
+
+                <div class="compass">
+                    🕋
+                </div>
+
+                <div id="qiblaDirection">
+                    কিবলার দিক নির্ণয় করা হচ্ছে...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Settings -->
+
+        <section
+            id="settingsPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <h2>
+                    সেটিংস
+                </h2>
+
+            </div>
+
+            <div class="settings-list">
+
+                <label class="setting-row">
+
+                    <span>
+                        ডার্ক মোড
+                    </span>
+
+                    <input
+                        type="checkbox"
+                        id="darkMode"
+                    >
+
+                </label>
+
+                <label class="setting-row">
+
+                    <span>
+                        শব্দার্থ চালু
+                    </span>
+
+                    <input
+                        type="checkbox"
+                        id="wordModeSetting"
+                        checked
+                    >
+
+                </label>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Word Popup -->
+
+    <div
+        id="wordPopup"
+        class="modal hidden"
+    >
+
+        <div class="modal-box">
+
+            <button
+                id="closeWordPopup"
+                class="modal-close"
+            >
+                ×
+            </button>
+
+            <h3>
+                শব্দে শব্দে অর্থ
+            </h3>
+
+            <div
+                id="wordMeaningList"
+                class="word-list"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Surah Popup -->
+
+    <div
+        id="surahPopup"
+        class="modal hidden"
+    >
+
+        <div class="modal-box">
+
+            <button
+                id="closeSurahPopup"
+                class="modal-close"
+            >
+                ×
+            </button>
+
+            <h3>
+                সূরা নির্বাচন করুন
+            </h3>
+
+            <div
+                id="surahPopupList"
+                class="surah-popup-list"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Scripts -->
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
