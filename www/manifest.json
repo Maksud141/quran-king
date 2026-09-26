@@ -1,0 +1,12 @@
+{
+  "name": "কুরআন শরীফ",
+  "short_name": "কুরআন শরীফ",
+  "description": "বাংলা অনুবাদ, শব্দার্থ, তাফসীর, অডিও ও নামাজের সময়সহ কুরআন অ্যাপ",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f5f7f6",
+  "theme_color": "#0b6b4b",
+  "orientation": "portrait",
+  "lang": "bn",
+  "dir": "ltr"
+}
